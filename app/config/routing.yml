@@ -1,0 +1,7 @@
+indydutch_image:
+    resource: "@IndydutchImageBundle/Resources/config/routing.xml"
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
