@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: @IndydutchImageBundle/Resources/config/admin.xml }
 
 framework:
     #esi:             ~
@@ -83,3 +84,7 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
         # Your other blocks
+
+sonata_admin:
+    title: Black-lux
+    title_logo: bundles/indydutchimage/camera_icon.png
