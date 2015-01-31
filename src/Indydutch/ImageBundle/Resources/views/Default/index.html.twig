@@ -1,3 +1,13 @@
-{% for category in categories %}
-    {{ category.name }}
-{% endfor %}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for category in categories %}
+        <h2>{{ category.name }}</h2>
+        {% for image in category.images %}
+            {{ dump(image) }}
+            <a href="{{ image.path }}" title="{{ image.name }}">
+                <img src="{{ image.path }}" alt="{{ image.name }}">
+            </a>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

@@ -1,13 +1,117 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<!DOCTYPE HTML>
+<!--
+/*
+ * blueimp Gallery Demo 2.11.0
+ * https://github.com/blueimp/Gallery
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+-->
+<html lang="en">
+<head>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <meta charset="utf-8">
+    <title>{% block title %}Black-lux Albert Photographe{% endblock %}</title>
+    <meta name="description"
+          content="Albert Photographe Angers">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block stylesheets %}
+        {% stylesheets
+        'blueimp/css/blueimp-gallery.css'
+        'blueimp/css/blueimp-gallery-indicator.css'
+        'blueimp/css/blueimp-gallery-video.css'
+        'blueimp/css/demo.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+        {% endstylesheets %}
+    {% endblock %}
+</head>
+<body>
+<h1>ALBERT<span class="lightgrey">PHOTOGRAPHE</span></h1>
+
+<p class="light grey s32 nopadding">Galerie de photos<br>
+    Albert Photographe<br>
+    +33&nbsp;681925695<br>
+    albertphotographe@free.fr</p>
+<!--ul class="navigation">
+    <li><a href="https://github.com/blueimp/Gallery/tags">Download</a></li>
+    <li><a href="https://github.com/blueimp/Gallery">Source Code</a></li>
+    <li><a href="https://github.com/blueimp/Gallery/blob/master/README.md">Documentation</a></li>
+    <li><a href="https://blueimp.net">&copy; Sebastian Tschan</a></li>
+</ul-->
+<h2>Carousel image gallery</h2>
+<!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
+<div id="blueimp-image-carousel" class="blueimp-gallery blueimp-gallery-carousel">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="play-pause"></a>
+</div>
+<br>
+
+<!--h2>Carousel video gallery</h2>
+<!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
+<!--div id="blueimp-video-carousel" class="blueimp-gallery blueimp-gallery-controls blueimp-gallery-carousel">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="play-pause"></a>
+</div>
+<br-->
+
+<h2>Lightbox image gallery</h2>
+<!-- The container for the list of example images -->
+<div id="links" class="links">
+    {% block body %}{% endblock %}
+</div>
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+{% javascripts
+    "blueimp/js/blueimp-helper.js"
+    "blueimp/js/blueimp-gallery.js"
+    "blueimp/js/blueimp-gallery-fullscreen.js"
+    "blueimp/js/blueimp-gallery-indicator.js"
+    "blueimp/js/blueimp-gallery-video.js"
+    "blueimp/js/blueimp-gallery-vimeo.js"
+    "blueimp/js/blueimp-gallery-youtube.js" %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    /*jslint evil: true */
+    /*global window, document*/
+    // Including jQuery via the protocol relative url above works for both http and https.
+    // Explicitly including jQuery via https allows running the Gallery demo as local file:
+    if (!window.jQuery) {
+        document.write(
+                '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"><\/script>'
+        );
+    }
+</script>
+
+{% javascripts
+    "blueimp/js/jquery.blueimp-gallery.js"
+    "blueimp/js/demo.js" %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+</body>
 </html>

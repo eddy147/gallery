@@ -18,6 +18,13 @@ class DefaultController extends Controller
             ->getRepository('IndydutchImageBundle:Category')
             ->findAll();
 
+        foreach ($categories as $category) {
+            $images = $this->getDoctrine()
+                ->getRepository('IndydutchImageBundle:Category')
+                ->findImagesByCategory($category);
+            $category->setImages($images);
+        }
+
         return $this->render(
             'IndydutchImageBundle:Default:index.html.twig',
             array(
