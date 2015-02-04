@@ -6,6 +6,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Image
 {
+    const SERVER_PATH_TO_IMAGE_FOLDER = 'uploads';
+
     /**
      * @var int
      */
@@ -131,23 +133,25 @@ class Image
      */
     public function upload()
     {
+        // the file property can be empty if the field is not required
         if (null === $this->getFile()) {
             return;
         }
 
-        // if there is an error when moving the file, an exception will
-        // be automatically thrown by move(). This will properly prevent
-        // the entity from being persisted to the database on error
-        $this->getFile()->move($this->getUploadRootDir(), $this->path);
+        // we use the original file name here but you should
+        // sanitize it at least to avoid any security issues
 
-        // check if we have an old image
-        if (isset($this->temp)) {
-            // delete the old image
-            unlink($this->getUploadRootDir().'/'.$this->temp);
-            // clear the temp image path
-            $this->temp = null;
-        }
-        $this->file = null;
+        // move takes the target directory and target filename as params
+        $this->getFile()->move(
+            Image::SERVER_PATH_TO_IMAGE_FOLDER,
+            $this->getFile()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->filename = $this->getFile()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFile(null);
     }
 
     /**

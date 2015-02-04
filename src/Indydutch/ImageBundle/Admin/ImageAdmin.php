@@ -19,9 +19,8 @@ class ImageAdmin extends Admin
         $formMapper
             ->add('file', 'file', array('required' => false))
             ->add('name', 'text', array('label' => 'Name', 'required' => true))
-            ->add('category', 'property', array('class' => 'Indydutch\ImageBundle\Entity\Category', 'required' => true))
             ->add('category', 'sonata_type_model', array(
-                'class'    => 'Indydutch\ImageBundle:Category',
+                'class'    => 'IndydutchImageBundle:Category',
                 'required' => true,
                 'multiple' => false,
                 'expanded' => true));
