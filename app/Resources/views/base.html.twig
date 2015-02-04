@@ -28,6 +28,7 @@
         'blueimp/css/blueimp-gallery-indicator.css'
         'blueimp/css/blueimp-gallery-video.css'
         'blueimp/css/demo.css'
+        'bundles/indydutchimage/blacklux.css'
         filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}">
         {% endstylesheets %}
@@ -84,14 +85,14 @@
     <ol class="indicator"></ol>
 </div>
 {% javascripts
-    "blueimp/js/blueimp-helper.js"
-    "blueimp/js/blueimp-gallery.js"
-    "blueimp/js/blueimp-gallery-fullscreen.js"
-    "blueimp/js/blueimp-gallery-indicator.js"
-    "blueimp/js/blueimp-gallery-video.js"
-    "blueimp/js/blueimp-gallery-vimeo.js"
-    "blueimp/js/blueimp-gallery-youtube.js" %}
-    <script src="{{ asset_url }}"></script>
+"blueimp/js/blueimp-helper.js"
+"blueimp/js/blueimp-gallery.js"
+"blueimp/js/blueimp-gallery-fullscreen.js"
+"blueimp/js/blueimp-gallery-indicator.js"
+"blueimp/js/blueimp-gallery-video.js"
+"blueimp/js/blueimp-gallery-vimeo.js"
+"blueimp/js/blueimp-gallery-youtube.js" %}
+<script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -108,9 +109,9 @@
 </script>
 
 {% javascripts
-    "blueimp/js/jquery.blueimp-gallery.js"
-    "blueimp/js/demo.js" %}
-    <script src="{{ asset_url }}"></script>
+"blueimp/js/jquery.blueimp-gallery.js"
+"blueimp/js/demo.js" %}
+<script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
 </body>

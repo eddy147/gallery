@@ -144,7 +144,7 @@ class Image
         // move takes the target directory and target filename as params
         $this->getFile()->move(
             Image::SERVER_PATH_TO_IMAGE_FOLDER,
-            $this->getFile()->getClientOriginalName()
+            $this->path
         );
 
         // set the path property to the filename where you've saved the file
@@ -183,7 +183,7 @@ class Image
     {
         return null === $this->path
             ? null
-            : $this->getUploadDir() . '/' . $this->path;
+            : '/web/' . self::SERVER_PATH_TO_IMAGE_FOLDER . '/' . $this->path;
     }
 
     /**
@@ -203,7 +203,7 @@ class Image
     {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'uploads/images';
+        return 'uploads';
     }
 
     /**

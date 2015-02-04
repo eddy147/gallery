@@ -4,9 +4,8 @@
     {% for category in categories %}
         <h2>{{ category.name }}</h2>
         {% for image in category.images %}
-            {{ dump(image) }}
-            <a href="{{ image.path }}" title="{{ image.name }}">
-                <img src="{{ image.path }}" alt="{{ image.name }}">
+            <a href="{{ image.getwebpath }}" title="{{ image.name }}" data-gallery>
+                <img src="{{ image.getwebpath }}" alt="{{ image.name }}">
             </a>
         {% endfor %}
     {% endfor %}
