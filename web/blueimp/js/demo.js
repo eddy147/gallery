@@ -26,7 +26,7 @@ $(function () {
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
-    }).done(function (result) {
+    }).done(function (result) {/*
         var carouselLinks = [],
             linksContainer = $('#links'),
             baseUrl;
@@ -50,7 +50,7 @@ $(function () {
             container: '#blueimp-image-carousel',
             carousel: true
         });
-    });
+    */});
 
     // Initialize the Gallery as video carousel:
     blueimp.Gallery([
