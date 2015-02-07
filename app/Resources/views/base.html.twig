@@ -33,21 +33,22 @@
         <link rel="stylesheet" href="{{ asset_url }}">
         {% endstylesheets %}
     {% endblock %}
+
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,600' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
-<h1>ALBERT<span class="lightgrey">PHOTOGRAPHE</span></h1>
+<h1>ALBERT<span class="grey">PHOTOGRAPHE</span></h1>
 
-<p class="light grey s32 nopadding">Galerie de photos<br>
-    Albert Photographe<br>
-    +33&nbsp;681925695<br>
-    albertphotographe@free.fr</p>
+<p>Albert&nbsp;Photographe&nbsp;+33&nbsp;681925695&nbsp;<a href="mailto:albertphotographe@free.fr">albertphotographe@free.fr</a></p>
 <!--ul class="navigation">
     <li><a href="https://github.com/blueimp/Gallery/tags">Download</a></li>
     <li><a href="https://github.com/blueimp/Gallery">Source Code</a></li>
     <li><a href="https://github.com/blueimp/Gallery/blob/master/README.md">Documentation</a></li>
     <li><a href="https://blueimp.net">&copy; Sebastian Tschan</a></li>
 </ul-->
-<h2>Carousel image gallery</h2>
+
 <!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
 <div id="blueimp-image-carousel" class="blueimp-gallery blueimp-gallery-carousel">
     <div class="slides"></div>
@@ -69,7 +70,6 @@
 </div>
 <br-->
 
-<h2>Lightbox image gallery</h2>
 <!-- The container for the list of example images -->
 <div id="links" class="links">
     {% block body %}{% endblock %}
